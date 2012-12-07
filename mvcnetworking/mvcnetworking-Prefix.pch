@@ -1,0 +1,17 @@
+//
+// Prefix header for all source files of the 'mvcnetworking' target in the 'mvcnetworking' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+	#import <UIKit/UIKit.h>
+	#import <Foundation/Foundation.h>
+#endif
+
+void TLog(const char *file, int line, NSString *format, ...);
+#define  NSLog(args...) TLog([[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__,args)
